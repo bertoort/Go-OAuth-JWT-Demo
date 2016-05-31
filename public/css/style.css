@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  color: white;
+  font-family: Roboto, sans-serif;
+  background: rebeccapurple;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.picture {
+  witdh: 400px;
+  height: 400px;
+}
+
+.login, .logout {
+  display: none;
+}

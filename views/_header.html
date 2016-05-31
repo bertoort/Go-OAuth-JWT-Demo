@@ -1,0 +1,33 @@
+{{ define "_header" }}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+      {{ .Title }}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper light-green">
+        <a href="#" class="brand-logo">Go Oauth/JWT Demo</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="login" href="/google"><i class="fa fa-6 fa-google-plus-official" aria-hidden="true"></i> Login</a></li>
+          <li><a class="logout" href="#">Logout</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a class="login" href="/google"><i class="fa fa-6 fa-google-plus-official" aria-hidden="true"></i> Login</a></li>
+          <li><a class="logout" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+{{ end }}

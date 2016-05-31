@@ -1,0 +1,28 @@
+{{ define "login" }} {{ template "_header" . }}
+<main>
+  <h4>Login in...</h4>
+</main>
+<script type="text/javascript">
+  function getParamValue(name) {
+    var params = window.location.search.substring(1).split('&').reduce(function(params, keyValue){
+      var splits = keyValue.split('=');
+      var key = splits[0];
+      var value = splits[1];
+      params[key] = value;
+
+      return params;
+    }, {});
+
+    var value = params[name];
+    if(value) {
+      return decodeURIComponent(value);
+    } else {
+      return '';
+    }
+  }
+  var token = getParamValue('token');
+  localStorage.token = token;
+  window.location = '/';
+</script>
+
+{{ template "_footer" . }} {{ end }}

@@ -40,11 +40,17 @@ func login(res http.ResponseWriter, req *http.Request, ps httprouter.Params) {
 	renderTemplate(res, "login", &attr)
 }
 
+// START INITIAL REQUEST
+
 // OAuth google login route
 func oauth(res http.ResponseWriter, req *http.Request, ps httprouter.Params) {
 	url := getAuthURL()
 	http.Redirect(res, req, url, http.StatusTemporaryRedirect)
 }
+
+// END INITIAL REQUEST
+
+// START CALLBACK ROUTE
 
 // OAuthCallback google login route
 func oauthCallback(res http.ResponseWriter, req *http.Request, ps httprouter.Params) {
@@ -55,3 +61,5 @@ func oauthCallback(res http.ResponseWriter, req *http.Request, ps httprouter.Par
 	url := "/login?token=" + token
 	http.Redirect(res, req, url, http.StatusTemporaryRedirect)
 }
+
+// END CALLBACK ROUTE

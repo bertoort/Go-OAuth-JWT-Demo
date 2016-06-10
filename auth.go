@@ -45,6 +45,8 @@ type Gplus struct {
 	prompt                  oauth2.AuthCodeOption
 }
 
+// START OAUTH CONFIG
+
 // configures the oauth provider
 func (g *Gplus) setConfig() {
 	g.config = &oauth2.Config{
@@ -59,6 +61,8 @@ func (g *Gplus) setConfig() {
 	}
 	g.config.Scopes = []string{"profile", "email", "openid"}
 }
+
+// END OAUTH CONFIG
 
 var gplus Gplus
 var publicKey []byte
@@ -87,6 +91,8 @@ func getAuthURL() string {
 	return url
 }
 
+// START FETCH USER
+
 // gets user information from token
 func fetchUser(token Token) User {
 	googleURL := gplus.Userinfo + "?access_token=" + url.QueryEscape(token.AccessToken)
@@ -101,6 +107,9 @@ func fetchUser(token Token) User {
 	return user
 }
 
+// END FETCH USER
+
+// START FETCH TOKEN
 // gets token from authentication code
 func fetchToken(code string) Token {
 	params := url.Values{}
@@ -123,6 +132,9 @@ func fetchToken(code string) Token {
 	return token
 }
 
+// END FETCH TOKEN
+
+// START JWT
 // creates jwt string from user and token
 func createJWT(user User, userToken Token) string {
 	token := jwt.New(jwt.SigningMethodHS256)
@@ -136,6 +148,10 @@ func createJWT(user User, userToken Token) string {
 	return tokenString
 }
 
+// END JWT
+
+// START JWT AUTH
+
 // authenticates user token
 func authenticate(req *http.Request) (bool, error) {
 	token, err := jwt.ParseFromRequest(req, func(token *jwt.Token) (interface{}, error) {
@@ -146,3 +162,5 @@ func authenticate(req *http.Request) (bool, error) {
 	}
 	return false, err
 }
+
+// END JWT AUTH

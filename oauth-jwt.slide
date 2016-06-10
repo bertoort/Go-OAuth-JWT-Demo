@@ -1,0 +1,88 @@
+OAuth and JWT
+June 2016
+Tags: go golang oauth jwt httprouter
+
+Roberto Ortega
+Instructor, Full Stack Developer - Galvanize
+roberto.ortega@galvanize.com
+
+* Overview
+
+- Flow of OAuth Authorization
+- Go Implementation
+- JSON Web Tokens
+
+-
+
+*Dependencies*
+
+- "golang.org/x/oauth2"
+- "github.com/dgrijalva/jwt-go"
+- "github.com/julienschmidt/httprouter"
+
+* Why should you care?
+
+.image https://jwt.io/img/pic_logo.svg 200 200
+
+OAuth
+- Not dealing with authorization
+
+JWT
+- Light weight transfer of information
+- Be RESTFul
+- Ideal for microservices
+
+* Basic Flow - Two main routes
+
+- Initialize Request
+- Callback Route
+
+.image https://developers.google.com/accounts/images/webflow.png
+
+* Initialize Request
+
+.code ./routes.go /START INITIAL REQUEST/,/END INITIAL REQUEST/
+
+- URL is unique to provider (i.e. google, facebook, github ...)
+- Redirect to provider to request user consent
+
+* Callback Route
+
+.code ./routes.go /START CALLBACK ROUTE/,/END CALLBACK ROUTE/
+
+- Parse code from query string
+- Fetch TOKEN from google with code
+- With the TOKEN, fetch user information (i.e. email, name, image ...)
+
+* Diving Deeper
+
+.code ./auth.go /START FETCH TOKEN/,/END FETCH TOKEN/
+
+* Diving Deeper (cont'd)
+
+Gets user information (email, profile, image, etc...)
+
+.code ./auth.go /START FETCH USER/,/END FETCH USER/
+
+* OAuth Config
+
+Set configuration with useful information
+
+.code ./auth.go /START OAUTH CONFIG/,/END OAUTH CONFIG/
+
+* JSON Web Token
+
+.image https://storage.googleapis.com/dghubble/jwt-example.png 500 700
+
+* JWT Creation
+
+Use the user information and a rsa key to create a JWT
+
+.code ./auth.go /START JWT/,/END JWT/
+
+* Using JWTs
+
+- Authenticate each request with Authorization header
+- Create a middleware
+
+.code ./auth.go /START JWT AUTH/,/END JWT AUTH/

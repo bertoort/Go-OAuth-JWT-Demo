@@ -19,3 +19,7 @@ Simple demo implementing [Google Plus OAuth](https://developers.google.com/ident
 ### Deployed Example
 
 [Heroku](https://go-oauth-jwt.herokuapp.com/)
+
+### Slides
+
+[go-talks](http://go-talks.appspot.com/github.com/BertoOrt/Go-OAuth-JWT-Demo/oauth-jwt.slide#1)

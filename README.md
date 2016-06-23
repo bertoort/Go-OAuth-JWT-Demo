@@ -10,11 +10,14 @@ Simple demo implementing [Google Plus OAuth](https://developers.google.com/ident
 
 ### Usage
 
-`go get github.com/bertoort/go-oauth-jwt-demo`
+- `go get github.com/bertoort/go-oauth-jwt-demo`
 
-`cd` into directory and
+- Get credentials from [Google](https://console.developers.google.com/apis/library)
+and add them to a `gplus.json` file
 
-`go run *.go`
+- Create a Token RSA Secret: `ssh-keygen -t rsa -f id_rsa`
+
+- `go run *.go`
 
 ### Deployed Example
 

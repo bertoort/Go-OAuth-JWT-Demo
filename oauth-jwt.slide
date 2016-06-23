@@ -4,7 +4,6 @@ Tags: go golang oauth jwt httprouter
 
 Roberto Ortega
 Instructor, Full Stack Developer - Galvanize
-https://github.com/BertoOrt/Go-OAuth-JWT-Demo
 roberto.ortega@galvanize.com
 
 * Overview
@@ -87,3 +86,16 @@ Use the user information and a rsa key to create a JWT
 - Create a middleware
 
 .code ./auth.go /START JWT AUTH/,/END JWT AUTH/
+
+* Token Based Auth
+
+.image https://dl.dropboxusercontent.com/u/21665105/cookie-token-auth.png 500 700
+
+* Resources
+
+.link https://github.com/BertoOrt/Go-OAuth-JWT-Demo
+
+.link https://auth0.com/ Auth0 Articles
+.link https://jwt.io JWT
+.link https://github.com/markbates/goth
+.link https://github.com/golang/oauth2

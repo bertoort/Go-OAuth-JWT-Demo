@@ -25,4 +25,4 @@ and add them to a `gplus.json` file
 
 ### Slides
 
-[go-talks](http://go-talks.appspot.com/github.com/BertoOrt/Go-OAuth-JWT-Demo/oauth-jwt.slide#1)
+[go-talks](http://go-talks.appspot.com/github.com/Berto/Go-OAuth-JWT-Demo/oauth-jwt.slide#1)
